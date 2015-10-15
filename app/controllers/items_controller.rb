@@ -46,6 +46,12 @@ class ItemsController < ApplicationController
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
 
+  def bid
+    @item = Item.find(params[:bid][:item_id])
+    @bid = Bid.create(amount: params[:bid][:amount], item_id: @item.id )
+    @bid.amount = @item.next_bid_amount
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

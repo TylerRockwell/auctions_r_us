@@ -1,0 +1,1 @@
+$("#bid-info").html(<%= j(render partial: '/items/bid', locals:{bid: @bid, item: @bid.item.reload})%>);
